@@ -12,7 +12,9 @@ Die Ausgänge (RX) und Eingänge (TX) verwenden die UART-Semantik: HIGH bedeutet
 
 ## Revision 1.0
 
-![Platine Rev 1.0](rev1.0/platine_2d.png) ![Layout Rev 1.0](rev1.0/platinenlayout.png)
+![Platine Rev 1.0](rev1.0/platine_2d.png)
+
+![Layout Rev 1.0](rev1.0/platinenlayout.png)
 
 ### Aufbau Lesekopf
 
@@ -69,6 +71,8 @@ Was nicht geht:
 In meinem Setup mit einem ESP8266 können regelmäßig mal einzelne Datenpakete nicht gelesen werden. Mein Stromzähler sendet 1x pro Sekunde und ca. 2 von 10 Paketen werden fehlerhaft empfangen.
 
 ## Revision 2.0
+
+![Platine Rev 2.0](rev2.0/platine_2d.png)
 
 ### Aufbau Lesekopf
 
