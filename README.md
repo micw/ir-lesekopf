@@ -53,7 +53,7 @@ Mit doppelseitigen Klebeband oder besser einem guten dauerhaften Kleber wird ein
 Lese- und Schreibkopf werden mit Minus (=GND) und Plus (=3.3V) aus dem ESP8266 oder ESP32 versorgt. TX vom Lesekopf wird an RX des Schreibkopfes und an einem GPIO des ESP angeschlossen. An jeder Platine sind oben und unten Anschlüsse, die 1:1 verbunden und gleichwertig sind. Die kleinen Schlitze sind für Zugentlastung (Kabelbinder oder Draht).
 
 
-### Einschränkungen
+### Tests und Erfahrungen
 
 Erfolgreich getestet wurde die folgende Konfiguration:
 
@@ -65,4 +65,53 @@ Was nicht geht:
 * 2 oder mehr Schreibköpfe
 * USB-TTL-Adapter statt dem ESP (der hat einen Eingang mit starken Pullup)
 * mehr als 3.3V
+
+In meinem Setup mit einem ESP8266 können regelmäßig mal einzelne Datenpakete nicht gelesen werden. Mein Stromzähler sendet 1x pro Sekunde und ca. 2 von 10 Paketen werden fehlerhaft empfangen.
+
+## Revision 2.0
+
+### Aufbau Lesekopf
+
+![Schema Lesekopf Rev 2.0](rev2.0/schema_lesekopf.png)
+
+Für die Revision 2.0 wurde die Schaltung des Lesekopf überarbeitet. Der IR-Transistor arbeitet nun gegen einen 10 kΩ Pull-Down (R1) und steuert den Transistor Q1 an. R2 dient dabei der Strombegrenzung am IR-Transistor. Damit lässt sich der IR-Transistor wesentlich empfindlicher auswerten und das Signal an RX ist deutlich stärker.
+
+Während der Lesekopf Revision 1.0 noch sehr dicht und präzise über der Sende-Diode des Stromzählers positioniert werden musste, kann mit dieser Schaltung das Signal auch noch in mehreren Zentimetern Entfernung und bei schlechter Positionierung sauber empfangen werden.
+
+Durch den Transistor können mehrere Schreibköpfe oder ein Schreibkopf und ein USB-TTL-Adapter angeschlossen werden, ohne dass die sich addierenden Pull-Ups zum Problem werden.
+
+### Aufbau Schreibkopf
+
+Das Schema des Schreibkopfes wurde nicht verändert. Es können deshalb auch bestehende Schreibköpfe aus Revision 1.0 unengeschränkt weiterverwendet werden. Der Vorwiderstand der IR-LED ist jetzt als SMD mit 100 Ω bestückt und muss nicht mehr manuell aufgelötet werden
+
+### Aufbauanleitung und Verkabelung
+
+Die Aufbauanleitung sowie die Verkabelung enztspricht der von Revision 1.0. Lediglich das auflöten des Vorwidestandes für den Schreibkopf entfällt
+
+### Tests und Erfahrungen
+
+* deutlich gesteigerte Empfangsempfindlichkeit gegenüber Revision 1.0
+* erfolgreicher Test mit Lesekopf + Schreibkopf + ESP32
+* erfolgreicher Test mit Lesekopf + Schreibkopf + USB-TTL-Adapter
+
+Der folgende Aufbau wurde über längere Zeit getestet:
+
+* Lesekopf Revision 2.0,
+* daran Schreibkopf Revision 1.0,
+* daran USB-TTL-Adapter
+
+zusätzlich
+* Lesekopf Revision 1.0 auf dem Schreibkopf,
+* daran einen ESP32
+
+Sowohl auf dem ESP 32 als auch über USB wurden über den Testzeitraum alle Datenpakete fehlerfrei empfangen.
+
+
+### TTL-Adapter
+
+![USB Serial 3.3V](img/usbserial.jpeg)
+
+Ich setze recht preiswerte USB-TTL-Adapter von Aliexpress ein (Suchbegriff [Für wemos ch340g ch340 Breakout 5V 3,3 V Micro USB zu serieller Modul platine für Arduino Downloader Pro Mini](https://de.aliexpress.com/item/1005006102082378.html)), Stückpreis ca. 1 Euro.
+
+Vor der Verwendung sollte unbedingt die Spannung geprüft werden. Ich hatte bereits mehrere Adapter unterschiedlicher Bauart welche 5 statt 3.3 Volt geliefert haben.
 
