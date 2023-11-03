@@ -100,7 +100,7 @@ Die Aufbauanleitung sowie die Verkabelung enztspricht der von Revision 1.0. Ledi
 
 Der folgende Aufbau wurde über längere Zeit getestet:
 
-![Beispielinstallation](img/Schreib-Lesekopf-V2-Testaufbau.drawio.png)
+![Beispielinstallation](rev2.0/Schreib-Lesekopf-V2-Testaufbau.drawio.png)
 
 * Lesekopf Revision 2.0 am Zähler (1),
 * daran 2x Schreibkopf Revision 1.0 (2, 3),
