@@ -100,13 +100,16 @@ Die Aufbauanleitung sowie die Verkabelung enztspricht der von Revision 1.0. Ledi
 
 Der folgende Aufbau wurde über längere Zeit getestet:
 
-* Lesekopf Revision 2.0,
-* daran Schreibkopf Revision 1.0,
+![Beispielinstallation](img/Schreib-Lesekopf-V2-Testaufbau.drawio.png)
+
+* Lesekopf Revision 2.0 am Zähler (1),
+* daran 2x Schreibkopf Revision 1.0 (2, 3),
 * daran USB-TTL-Adapter
 
 zusätzlich
-* Lesekopf Revision 1.0 auf dem Schreibkopf,
+* Lesekopf Revision 1.0 auf einem der Schreibköpfe (4),
 * daran einen ESP32
+
 
 Sowohl auf dem ESP 32 als auch über USB wurden über den Testzeitraum alle Datenpakete fehlerfrei empfangen.
 
