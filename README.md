@@ -52,7 +52,7 @@ Mit doppelseitigen Klebeband oder besser einem guten dauerhaften Kleber wird ein
 
 #### Verkabelung
 
-Lese- und Schreibkopf werden mit Minus (=GND) und Plus (=3.3V) aus dem ESP8266 oder ESP32 versorgt. TX vom Lesekopf wird an RX des Schreibkopfes und an einem GPIO des ESP angeschlossen. An jeder Platine sind oben und unten Anschlüsse, die 1:1 verbunden und gleichwertig sind. Die kleinen Schlitze sind für Zugentlastung (Kabelbinder oder Draht).
+Lese- und Schreibkopf werden mit Minus (=GND) und Plus (=3.3V) aus dem ESP8266 oder ESP32 versorgt. RX vom Lesekopf wird an TX des Schreibkopfes und an einem GPIO des ESP angeschlossen. An jeder Platine sind oben und unten Anschlüsse, die 1:1 verbunden und gleichwertig sind. Die kleinen Schlitze sind für Zugentlastung (Kabelbinder oder Draht).
 
 
 ### Tests und Erfahrungen
